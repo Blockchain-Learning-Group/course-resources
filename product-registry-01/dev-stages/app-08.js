@@ -1,4 +1,8 @@
 class ProductRegistry extends React.Component {
+  handleProductUpVote() {
+    console.log('click');
+  }
+
   render() {
     return (
       <div className='ui unstackable items'>
@@ -11,6 +15,8 @@ class ProductRegistry extends React.Component {
               description={product.description}
               submitterAvatarUrl={product.submitterAvatarUrl}
               productImageUrl={product.productImageUrl}
+              votes={product.votes}
+              onVote={this.handleProductUpVote}
             />
           )
         }
@@ -27,6 +33,12 @@ class Product extends React.Component {
           <img src={this.props.productImageUrl} />
         </div>
         <div className='middle aligned content'>
+          <div className='header'>
+            <a onClick={this.props.onVote}>
+              <i className='large caret up icon' />
+            </a>
+            {this.props.votes}
+          </div>
           <div className='description'>
             <a>{this.props.title}</a>
             <p>{this.props.description}</p>
