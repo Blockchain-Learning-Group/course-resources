@@ -14,16 +14,16 @@ class Product extends React.Component {
     return (
       <div className='item'>
         <div className='image'>
-          <img src='images/products/image-aqua.png' />
+          <img src={this.props.productImageUrl} />
         </div>
         <div className='middle aligned content'>
           <div className='description'>
-            <a>YOUR PRODUCT NAME</a>
-            <p>NEW FANCY PRODUCT OF YOUR OWN</p>
+            <a>{this.props.title}</a>
+            <p>{this.props.description}</p>
           </div>
           <div className='extra'>
             <span>Submitted by:</span>
-            <img className='ui avatar image' src='images/avatars/liz.png' />
+            <img className='ui avatar image' src={this.props.submitterAvatarUrl} />
           </div>
         </div>
       </div>
