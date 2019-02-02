@@ -1,11 +1,9 @@
 class ProductRegistry extends React.Component {
   render() {
-    const products = Seed.products;
-
     return (
       <div className='ui unstackable items'>
         {
-          products.map(product => 
+          Seed.products.map(product => 
             <Product
               key={'product-'+product.id}
               id={product.id}
