@@ -1,6 +1,6 @@
 class ProductRegistry extends React.Component {
-  handleProductUpVote() {
-    console.log('click');
+  handleProductUpVote(productId) {
+    console.log(productId);
   }
 
   render() {
@@ -34,7 +34,7 @@ class Product extends React.Component {
         </div>
         <div className='middle aligned content'>
           <div className='header'>
-            <a onClick={this.props.onVote}>
+            <a onClick={() => this.props.onVote(this.props.id)}>
               <i className='large caret up icon' />
             </a>
             {this.props.votes}
