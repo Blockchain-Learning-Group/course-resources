@@ -1,13 +1,27 @@
 class ProductRegistry extends React.Component {
-  handleProductUpVote(productId) {
-    console.log(productId);
+  state = {
+    products: Seed.products
+  };
+
+  handleProductUpVote = (productId) => {
+    const nextProducts = this.state.products.map((product) => {
+      if (product.id === productId) {
+        return Object.assign({}, product, {
+          votes: product.votes + 1,
+        });
+      } else {
+        return product;
+      }
+    });
+    
+    this.setState({ products: nextProducts });
   }
 
   render() {
     return (
       <div className='ui unstackable items'>
         {
-          Seed.products.map(product => 
+          this.state.products.map(product => 
             <Product
               key={'product-'+product.id}
               id={product.id}
